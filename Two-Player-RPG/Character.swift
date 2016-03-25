@@ -12,7 +12,7 @@ class Character {
     private var _hp: Int!
     private var _attackPwr: Int!
     private var _name: String!
-    //private var _imgChoice: String!
+    private var _imgChoice: String!
     
     var hp: Int {
         return _hp
@@ -26,9 +26,23 @@ class Character {
         return _name
     }
     
-//    var imgChoice: String {
-//        return _imgChoice
-//    }
+    var imgChoice: String {
+        return _imgChoice
+    }
+    
+    init(hp: Int, attackPwr: Int, name: String) {
+        _hp = hp
+        _attackPwr = attackPwr
+        _name = name
+        
+    }
+    
+    init(hp: Int, attackPwr: Int, name: String, imgChoice: String) {
+        _hp = hp
+        _attackPwr = attackPwr
+        _name = name
+        _imgChoice = imgChoice
+    }
     
     func isAlive() -> Bool {
         if _hp <= 0 {
@@ -38,8 +52,8 @@ class Character {
         return true
     }
     
-    func attemptAttack(attackPwr: Int) -> Bool {
-        return true
+    func wasAttacked(attackPwr: Int) {
+        _hp = _hp - attackPwr
     }
     
     func inputName(name: String) {

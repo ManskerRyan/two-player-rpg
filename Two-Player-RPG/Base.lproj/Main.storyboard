@@ -63,18 +63,18 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3m-wf-Ic6">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3m-wf-Ic6">
                                 <rect key="frame" x="375" y="278" width="212" height="78"/>
                                 <state key="normal" image="player2attackbtn"/>
                                 <connections>
-                                    <action selector="onPlayerAttackTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fTC-dk-v0t"/>
+                                    <action selector="onAttackTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0ZP-ef-TV3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alU-9M-DOF">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alU-9M-DOF">
                                 <rect key="frame" x="8" y="278.5" width="212" height="78"/>
                                 <state key="normal" image="player1attackbtn"/>
                                 <connections>
-                                    <action selector="onEnemyAttackTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RnS-x1-MOw"/>
+                                    <action selector="onAttackTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mnT-Js-X0E"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attack" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ci-oP-8Vu">
@@ -151,7 +151,7 @@
                         <outlet property="groundBg" destination="J2f-mX-kQ4" id="VoH-nw-qLo"/>
                         <outlet property="mountainBg" destination="bdQ-Ge-rJz" id="XxJ-3V-BvB"/>
                         <outlet property="player" destination="VcE-Du-0EJ" id="9nj-KJ-ryu"/>
-                        <outlet property="playerAttack" destination="w3m-wf-Ic6" id="GrH-tL-4DH"/>
+                        <outlet property="playerAttack" destination="w3m-wf-Ic6" id="VrY-jt-Zmf"/>
                         <outlet property="playerAttackLbl" destination="3ci-oP-8Vu" id="aLl-Qb-m8S"/>
                         <outlet property="playerHp" destination="JpK-5O-k8n" id="6eh-dS-kj3"/>
                     </connections>

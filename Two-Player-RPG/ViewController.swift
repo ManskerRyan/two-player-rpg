@@ -31,22 +31,51 @@ class ViewController: UIViewController {
     @IBOutlet weak var player: UIImageView!
     
         //Game Variables
-    var btnTapped: Bool?
+    var winner: String?
     var playerOne: Character!
     var playerTwo: Character!
+    
+    //Make sure this actually changes the player's propeties
+    var buttonTapped: Character!
+    var characterAttacked: Character!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        playerOne = Character(hp: 100, attackPwr: 20, name: "Player One")
+        playerTwo = Character(hp: 100, attackPwr: 20, name: "Player Two")
+    }
+    func btnUnPause() {
+        playerAttack.hidden = false
+        playerAttackLbl.hidden = false
+        enemyAttack.hidden = false
+        enemyAttackLbl.hidden = false
+    }
+    
+    func btnPause() {
+        playerAttack.hidden = true
+        playerAttackLbl.hidden = true
+        enemyAttack.hidden = true
+        enemyAttackLbl.hidden = true
     }
 
-    @IBAction func onPlayerAttackTapped(sender: AnyObject) {
+    @IBAction func onAttackTapped(button: UIButton) {
+        if button.tag == 1 {
+            buttonTapped = playerTwo
+            characterAttacked = playerOne
+        } else if button.tag == 2 {
+            buttonTapped = playerOne
+            characterAttacked = playerTwo
+        }
         
-    }
-
-    @IBAction func onEnemyAttackTapped(sender: AnyObject) {
-        
+        buttonTapped.wasAttacked(playerOne.attackPwr)
+        if characterAttacked.isAlive() == false {
+            //End Game code here
+        } else {
+            btnPause()
+            NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: (#selector(ViewController.btnUnPause)), userInfo: nil, repeats: true)
+        }
     }
 }
 
