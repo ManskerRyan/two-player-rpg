@@ -44,58 +44,42 @@ class ViewController: UIViewController {
     var playerTwo: Character!
     
         //GameSounds
-    var playerDie: AVAudioPlayer!
-    var orcAttack: AVAudioPlayer!
-    var knightAttack: AVAudioPlayer!
-    var backgroundFX: AVAudioPlayer!
+    var playerDie = AVAudioPlayer()
+    var orcAttack = AVAudioPlayer()
+    var knightAttack = AVAudioPlayer()
+    var backgroundFX = AVAudioPlayer()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadAudio()
+        loadAudio(&playerDie, fileName: "Dying-FX", fileType: "wav")
+        loadAudio(&orcAttack, fileName: "Attacknoise-FX", fileType: "wav")
+        loadAudio(&knightAttack, fileName: "SwordSwing-FX", fileType: "wav")
+        loadAudio(&backgroundFX, fileName: "BG-FX", fileType: "wav")
+        
+        prepareAudio()
+        backgroundFX.play()
+        backgroundFX.numberOfLoops = -1
+        
         startGame()
     }
     
-    func loadAudio() {
-        var path = NSBundle.mainBundle().pathForResource("BG-FX", ofType: "wav")
-        var soundURL = NSURL(fileURLWithPath: path!)
+    func loadAudio(inout fxName: AVAudioPlayer, fileName: String, fileType: String) {
+        let path = NSBundle.mainBundle().pathForResource(fileName, ofType: fileType)
+        let soundURL = NSURL(fileURLWithPath: path!)
         
         do {
-            try backgroundFX = AVAudioPlayer(contentsOfURL: soundURL)
-            backgroundFX.prepareToPlay()
+            try fxName = AVAudioPlayer(contentsOfURL: soundURL)
         } catch let err as NSError {
             print(err.debugDescription)
         }
-        
-        path = NSBundle.mainBundle().pathForResource("Attacknoise-FX", ofType: "wav")
-        soundURL = NSURL(fileURLWithPath: path!)
-        
-        do {
-            try orcAttack = AVAudioPlayer(contentsOfURL: soundURL)
-            orcAttack.prepareToPlay()
-        } catch let err as NSError {
-            print(err.debugDescription)
-        }
-        
-        path = NSBundle.mainBundle().pathForResource("Dying-FX", ofType: "wav")
-        soundURL = NSURL(fileURLWithPath: path!)
-        
-        do {
-            try playerDie = AVAudioPlayer(contentsOfURL: soundURL)
-            playerDie.prepareToPlay()
-        } catch let err as NSError {
-            print(err.debugDescription)
-        }
-        
-        path = NSBundle.mainBundle().pathForResource("SwordSwing-FX", ofType: "wav")
-        soundURL = NSURL(fileURLWithPath: path!)
-        
-        do {
-            try knightAttack = AVAudioPlayer(contentsOfURL: soundURL)
-            knightAttack.prepareToPlay()
-        } catch let err as NSError {
-            print(err.debugDescription)
-        }
+    }
+    
+    func prepareAudio() {
+        playerDie.prepareToPlay()
+        orcAttack.prepareToPlay()
+        knightAttack.prepareToPlay()
+        backgroundFX.prepareToPlay()
     }
     
     func btnToggle() {
@@ -131,6 +115,7 @@ class ViewController: UIViewController {
     
     func determineEndGame(player: Character, winner: Character) {
         if player.isAlive() == false {
+            playerDie.play()
             showWinningMessage()
             winningLbl.text = "\(winner.name) is the winner"
         } else {
@@ -143,11 +128,13 @@ class ViewController: UIViewController {
         if button.tag == 1 {
             playerOne.wasAttacked(playerTwo.attackPwr)
             determineEndGame(playerOne, winner: playerTwo)
+            knightAttack.play()
             playerHp.text = "\(playerOne.hp) HP"
         } else if button.tag == 2 {
             playerTwo.wasAttacked(playerOne.attackPwr)
             enemyHPLbl.text = "\(playerTwo.hp) HP"
             determineEndGame(playerTwo, winner: playerOne)
+            orcAttack.play()
         }
     }
     
