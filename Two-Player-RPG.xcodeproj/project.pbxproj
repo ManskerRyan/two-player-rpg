@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9493A12C1CA82F2600410FDE /* Attacknoise-FX.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9493A1281CA82F2600410FDE /* Attacknoise-FX.wav */; };
+		9493A12D1CA82F2600410FDE /* BG-FX.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9493A1291CA82F2600410FDE /* BG-FX.wav */; };
+		9493A12E1CA82F2600410FDE /* Dying-FX.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9493A12A1CA82F2600410FDE /* Dying-FX.wav */; };
+		9493A12F1CA82F2600410FDE /* SwordSwing-FX.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9493A12B1CA82F2600410FDE /* SwordSwing-FX.wav */; };
 		949F0C821CA557C6002B4F76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949F0C811CA557C6002B4F76 /* AppDelegate.swift */; };
 		949F0C841CA557C6002B4F76 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949F0C831CA557C6002B4F76 /* ViewController.swift */; };
 		949F0C871CA557C6002B4F76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 949F0C851CA557C6002B4F76 /* Main.storyboard */; };
@@ -17,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9493A1281CA82F2600410FDE /* Attacknoise-FX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Attacknoise-FX.wav"; sourceTree = "<group>"; };
+		9493A1291CA82F2600410FDE /* BG-FX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "BG-FX.wav"; sourceTree = "<group>"; };
+		9493A12A1CA82F2600410FDE /* Dying-FX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Dying-FX.wav"; sourceTree = "<group>"; };
+		9493A12B1CA82F2600410FDE /* SwordSwing-FX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "SwordSwing-FX.wav"; sourceTree = "<group>"; };
 		949F0C7E1CA557C6002B4F76 /* Two-Player-RPG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Two-Player-RPG.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		949F0C811CA557C6002B4F76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		949F0C831CA557C6002B4F76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +66,10 @@
 		949F0C801CA557C6002B4F76 /* Two-Player-RPG */ = {
 			isa = PBXGroup;
 			children = (
+				9493A1281CA82F2600410FDE /* Attacknoise-FX.wav */,
+				9493A1291CA82F2600410FDE /* BG-FX.wav */,
+				9493A12A1CA82F2600410FDE /* Dying-FX.wav */,
+				9493A12B1CA82F2600410FDE /* SwordSwing-FX.wav */,
 				949F0C971CA56B34002B4F76 /* Minecraft.ttf */,
 				949F0C811CA557C6002B4F76 /* AppDelegate.swift */,
 				949F0C831CA557C6002B4F76 /* ViewController.swift */,
@@ -132,6 +144,10 @@
 				949F0C891CA557C6002B4F76 /* Assets.xcassets in Resources */,
 				949F0C981CA56B34002B4F76 /* Minecraft.ttf in Resources */,
 				949F0C871CA557C6002B4F76 /* Main.storyboard in Resources */,
+				9493A12C1CA82F2600410FDE /* Attacknoise-FX.wav in Resources */,
+				9493A12D1CA82F2600410FDE /* BG-FX.wav in Resources */,
+				9493A12E1CA82F2600410FDE /* Dying-FX.wav in Resources */,
+				9493A12F1CA82F2600410FDE /* SwordSwing-FX.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +312,7 @@
 				949F0C921CA557C6002B4F76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

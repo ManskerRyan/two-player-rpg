@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     //MARK: Properties
@@ -42,9 +43,59 @@ class ViewController: UIViewController {
     var playerOne: Character!
     var playerTwo: Character!
     
+        //GameSounds
+    var playerDie: AVAudioPlayer!
+    var orcAttack: AVAudioPlayer!
+    var knightAttack: AVAudioPlayer!
+    var backgroundFX: AVAudioPlayer!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadAudio()
         startGame()
+    }
+    
+    func loadAudio() {
+        var path = NSBundle.mainBundle().pathForResource("BG-FX", ofType: "wav")
+        var soundURL = NSURL(fileURLWithPath: path!)
+        
+        do {
+            try backgroundFX = AVAudioPlayer(contentsOfURL: soundURL)
+            backgroundFX.prepareToPlay()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+        
+        path = NSBundle.mainBundle().pathForResource("Attacknoise-FX", ofType: "wav")
+        soundURL = NSURL(fileURLWithPath: path!)
+        
+        do {
+            try orcAttack = AVAudioPlayer(contentsOfURL: soundURL)
+            orcAttack.prepareToPlay()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+        
+        path = NSBundle.mainBundle().pathForResource("Dying-FX", ofType: "wav")
+        soundURL = NSURL(fileURLWithPath: path!)
+        
+        do {
+            try playerDie = AVAudioPlayer(contentsOfURL: soundURL)
+            playerDie.prepareToPlay()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+        
+        path = NSBundle.mainBundle().pathForResource("SwordSwing-FX", ofType: "wav")
+        soundURL = NSURL(fileURLWithPath: path!)
+        
+        do {
+            try knightAttack = AVAudioPlayer(contentsOfURL: soundURL)
+            knightAttack.prepareToPlay()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
     }
     
     func btnToggle() {
